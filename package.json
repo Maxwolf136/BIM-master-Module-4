@@ -1,0 +1,25 @@
+{
+  "name": "module-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "vite": "^5.1.1"
+  },
+  "dependencies": {
+    "esbuild": "^0.19.12",
+    "nanoid": "^3.3.7",
+    "picocolors": "^1.0.0",
+    "postcss": "^8.4.35",
+    "rollup": "^4.10.0",
+    "source-map-js": "^1.0.2",
+    "uuid": "^9.0.1"
+  },
+  "description": ""
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sytle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+<aside id="sidebar">
+        <img id="Company-logo" src="./assets/Company-logo.svg" alt="">
+        <ul id="nav-buttons">
+            <li class="material-icons">dashboard
+                <div>Projects Tasks</div>
+            </li>
+            <li class="material-icons">cloud
+                <div>Projects Tasks</div>
+            </li>
+            </li>
+        </ul>
+    </aside>
+    <main id="content">
+        <div class="page" id="project-page">
+        <dialog id="new-project-modal">
+            <form id="new-project-form" >
+                <h2>New Poject</h2>
+                <div class="input-list">
+                    <div class="form-field-container">
+                        <i class="fa-regular fa-building"></i>
+                        <label>Name</label>
+                        <input name="name" type="text" placeholder=" What is the name of your project?">
+                    <div class="form-field-container">
+                        <i class="fa-regular fa-rectangle-list"></i>
+                        <label>Description</label>
+                        <textarea name="description" cols="30" rows="5" placeholder="give me number"></textarea>
+                    <div class="form-field-container"></div>
+                        <i class="fa-regular fa-user"></i>
+                        <label>Role</label>
+                        <select name="role">
+                            <option>Admin</option>
+                            <option>Manager</option>
+                            <option>Developer</option>
+                            <option>Designer</option>
+                        </select>
+                    <div class="form-field-container"></div>
+                        <i class="fa-regular fa-chart-bar"></i>
+                        <label>Status</label>
+                        <select name="status">
+                            <option>Pending</option>
+                            <option>Closed</option>
+                            <option>Archive</option>
+                        </select>
+                    <div class="form-field-container"></div>
+                </div>
+                    </div>
+                    <div class="form-field-container"></div>
+                    <i class="fa-regular fa-chart-bar"></i>
+                            <label>Finish date</label>
+                    <input name="date" type="date">
+                <div class="button-container">
+                    <button id="close-btn"  type="button" style=" align-items:end; color: white; padding: 9px; border-radius: 6px;">Cancel</button>
+                    <button type="submit" style="color: white; background-color: rgb(0, 255, 13); padding: 9px; border-radius: 6px;">Create</button>
+            </form>
+            <dialog id="pop-up-modal" style="display:none; ">
+                <div id="pop-up-container">
+                    <h2 class="fa fa-warning">Warning!</h2>
+                     <p id="Alert-message">Projektet har samma namn</p>
+                    <button id="close-pop-up-btn" type="button">Close</button>
+                </div>
+            </dialog>
+        </dialog>
+
+        <header id="page-header">
+            <h1>Projects</h1>
+            <div>
+                <button id="import-btn" class="fa-solid fa-upload"><span class="material-icon-round">Import</span></button>
+                <button id="export-btn" class="fa-solid fa-download"><span class="material-icon-round">Export</span></button>
+                <button id="new-project-btn" class="fa-solid fa-plus"><span class="material-icon-round">New Project</span></button>
+            </div>
+        </header>
+        <div id="project-list">
+            <div class="project-card" style="display: none;">
+                <div class="card-header">
+                    <p style="background-color: #57ca34; padding: 10px; border-radius: 8px; aspect-ratio: 1;">HC</p>
+                    <div>
+                    <h5>Project Name</h5>
+                    <p>Project Description Goes Here...</p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-property">
+                    <p style="color: #969696;">Status</p>
+                    <p>Active</p>
+                    </div>
+                    <div class="card-property">
+                    <p style="color: #969696;">Role</p>
+                    <p>Engineer</p>
+                    </div>
+                    <div class="card-property">
+                    <p style="color: #969696;">Cost</p>
+                    <p>$2000.000</p>
+                    </div>
+                    <div class="card-property">
+                    <p style="color: #969696;">Estimated Progress</p>
+                    <p>45%</p>
+                    </div>
+                </div>
+             </div>
+        </div>
+        </div>
+        <div class="page" id="project-details" style="display: none;">
+            <header>
+                <div>
+                    <h2>Prject</h2>
+                    <p style="color: white;">Mitt projekt</p>
+                </div>
+            </header>
+            <div class="main-page-content">
+                <div style="display: flex; flex-direction: column; row-gap: 30px;">
+                    <div class="dashboard-card" style="padding: 30px 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0px; margin-bottom: 30px;">
+                        <p style="font-size: 20px; background-color: orange; aspect-ratio: 1; border-radius: 100%; padding: 15px; margin: 20px;">HC</p>
+                        <button class="btn-secondary"><p style="width: 100%;">Edit</p> </button>
+                    </div>
+                    <div style="padding: 0 20px;">
+                        <h3>Hospital Center</h3>
+                        <p>Description</p>
+                    </div>  
+                    <div style="display: flex; column-gap: 20px; padding: 10px 0px; justify-content: space-between;">
+                        <div class="dashboard-card-details">
+                            <div>Status</div>
+                            <div>Active</div>
+                        </div>
+                        <div class="dashboard-card-details">
+                            <div>Cost</div>
+                            <div>20LaX</div>
+                        </div>
+                        <div class="dashboard-card-details">
+                            <div>Role</div>
+                            <div>Monster</div>
+                        </div>
+                            <div class="dashboard-card-details">
+                                <div>Finish Date</div>
+                                <date>2022-12-12</date>
+                        </div>
+                    </div>
+                    <div tyle="background-color: #404040; border-radius: 9999px; overflow: auto;">
+                       <div style="width: 80%; background-color: green; padding: 4px 0; text-align: center;">80%</div>
+                    </div>
+                    </div>
+                    <div class="dashboard-card" style="flex-grow: 1">
+                        <div style="padding: 20px 30px; display: flex; align-items: center; justify-content: space-between;">
+                            <h2>T-do</h2>
+                            <div style="display: flex; align-items: center; justify-content: end; column-gap: 20px;">
+                                <div style="display: flex; align-items: center; column-gap: 10px;">
+                                    <span class="material-icon-round">search</span>
+                                    <input type="text" placeholder="Search" style="width: 100%;">
+                                    <div>
+                                        <span class="material-icon-round">add</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; padding: 10px 30px; row-gap: 20px;">
+                            <div class="T-do">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div style="display: flex; column-gap: 15px; align-items: center;">
+                                        <span class="material-icon-round" style="padding: 10px; background-color: #969696;">check_box</span>
+                                        <p>make anything here as you want, bla bla bla</p>
+                                    </div>
+                                    <p style="text-wrap: nowrap; margin-left:10px">Friday</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div id="Viewer-container" class="dashboard-card"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="src/index.ts"></script>                                                            
+</body>
+</html>
