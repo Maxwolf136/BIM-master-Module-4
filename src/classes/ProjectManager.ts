@@ -5,7 +5,7 @@ export class ProjectManager {
     list: Project[] = [] // skapar en ny array med typen Project
     ui: HTMLDivElement // skapar en ny variabel som är av typen HTMLDivElement
 
-
+// constructor
     constructor(container: HTMLDivElement) {
         this.ui = container
 
