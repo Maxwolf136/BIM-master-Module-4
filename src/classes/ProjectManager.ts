@@ -96,6 +96,8 @@ export class ProjectManager {
             a.click()
             URL.revokeObjectURL(url)
         }
+
+        //test editera
         importJSON(){
             const input = document.createElement(`input`)
             input.type = `file`
