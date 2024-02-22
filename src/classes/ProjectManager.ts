@@ -1,3 +1,4 @@
+import { formatMessages } from 'esbuild';
 import { Project, IProject } from './Project';
 
 export class ProjectManager {
@@ -27,12 +28,32 @@ export class ProjectManager {
                 if (!projectPage || !detailsPage) {return}
                 projectPage.style.display = "none"
                 detailsPage.style.display = "flex"
+                this.setDetailsPage(project)
         })
             this.ui.append(project.ui)
             this.list.push(project)
             return project
         }
  
+        private setDetailsPage(project: Project) {
+            const detailsPage = document.getElementById("project-details") as HTMLDivElement
+
+            if (!detailsPage) {return}
+            const name = document.querySelector("[data-project-info='name']")
+            const description = document.querySelector("[data-project-description='description']")
+            const role = document.querySelector("[card-project-role='role']")
+            const status = document.querySelector("[card-project-status='card-status']")
+            const date = document.querySelector("[card-data-date='date']") 
+            
+            if (name && description && role && status && date) {	
+                name.textContent = project.name
+                description.textContent = project.description
+                role.textContent = project.role
+                status.textContent = project.status 
+                date.textContent = project.date.toDateString()
+            }
+        }
+
         getProject(id:string) {
             const project= this.list.find((project) => {
                 return project.id === id      
@@ -67,14 +88,13 @@ export class ProjectManager {
 
         exportJSON(filename: string = "projects.json") {
             const json = JSON.stringify(this.list, null, 2)
-            const blob = new Blob([json], {type: "application/json"})
+            const blob = new Blob([json], {type: "application/json"}) // skapar en ny blob
             const url = URL.createObjectURL(blob)
             const a = document.createElement("a")
             a.href = url
             a.download = "projects.json"
             a.click()
             URL.revokeObjectURL(url)
-        }
 
         importJSON(){
             const input = document.createElement(`input`)
@@ -91,7 +111,7 @@ export class ProjectManager {
                     } catch (error) {
                         console.warn(error)
                     }
-                } // Add this closing curly brace
+                } 
             })
 
 

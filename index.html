@@ -113,8 +113,8 @@
         <div class="page" id="project-details" style="display: none;">
             <header>
                 <div>
-                    <h2>Prject</h2>
-                    <p style="color: white;">Mitt projekt</p>
+                    <h2 data-project-info="name">Prject</h2>
+                    <p data-project-description="description">Mitt projektbeskrivnings</p>
                 </div>
             </header>
             <div class="main-page-content">
@@ -131,7 +131,7 @@
                     <div style="display: flex; column-gap: 20px; padding: 10px 0px; justify-content: space-between;">
                         <div class="dashboard-card-details">
                             <div>Status</div>
-                            <div>Active</div>
+                            <div card-project-status="card-status">Active</div>
                         </div>
                         <div class="dashboard-card-details">
                             <div>Cost</div>
@@ -139,11 +139,11 @@
                         </div>
                         <div class="dashboard-card-details">
                             <div>Role</div>
-                            <div>Monster</div>
+                            <div card-project-role="role">Monster</div>
                         </div>
                             <div class="dashboard-card-details">
                                 <div>Finish Date</div>
-                                <date>2022-12-12</date>
+                                <date card-data-date="date" type="Date">2023-03-14</date>
                         </div>
                     </div>
                     <div tyle="background-color: #404040; border-radius: 9999px; overflow: auto;">
