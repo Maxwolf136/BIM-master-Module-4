@@ -95,7 +95,7 @@ export class ProjectManager {
             a.download = "projects.json"
             a.click()
             URL.revokeObjectURL(url)
-
+        }
         importJSON(){
             const input = document.createElement(`input`)
             input.type = `file`
