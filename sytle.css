@@ -30,24 +30,27 @@ body {
 
 #sidebar {
   background-color: #6f7072;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  row-gap: 40px;
+  row-gap: 30px;
   margin: 0px;
 
 }
 
+
+
 #nav-buttons {
   list-style: none;
-  padding: 15px;
+  padding: 5px;
   border-radius: 10px;
   font-size: 12px;
   cursor: pointer;
   background-color: grey;
-  display: flex;
-  justify-content: space-around;
+  display:flex;
   flex-direction: column;
+  text-align: left;
+  align-items: left;
 }
 
 #nav-buttons li:hover {
@@ -56,17 +59,19 @@ body {
 
 
 #nav-buttons li {
-  padding: 8px;
+  padding:5px;
   border-radius: 10px;
   transition: 0.3s;
   display: flex;
-  text-align: center;
+  text-align:left;
   justify-content: space-between;
+  width: 30px;
+  align-items: space-between;
 }
 
 #Company-logo {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   margin: 10px;
 }
@@ -253,11 +258,17 @@ button {
 }
 
 
+.dashboard-card-header {
+ text-transform: uppercase;
+}
+
+
 .dashboard-card-details {
   display:inline-block;
   flex-direction:row;
   row-gap: 70px;
   margin: 20px;
+  
 }
 
 #project-details > .main-page-content {

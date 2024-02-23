@@ -44,13 +44,17 @@ export class ProjectManager {
             const role = document.querySelector("[card-project-role='role']")
             const status = document.querySelector("[card-project-status='card-status']")
             const date = document.querySelector("[card-data-date='date']") 
-            
-            if (name && description && role && status && date) {	
+            //M2-Assignment Q#1
+            const nameIcon= document.querySelector("[class-header-class='dashboard-card-header']")
+
+            if (name && description && role && status && date && nameIcon) {	
                 name.textContent = project.name
                 description.textContent = project.description
                 role.textContent = project.role
                 status.textContent = project.status 
                 date.textContent = project.date.toDateString()
+                //M2-Assignment Q#1
+                nameIcon.textContent = project.name.substring(0,2)
             }
         }
 

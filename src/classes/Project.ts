@@ -1,3 +1,4 @@
+import { getPositionOfLineAndCharacter } from 'typescript';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -43,7 +44,7 @@ id: string
         if (this[key] !== data[key]) {
             console.log("successful")
         }
-
+   
 
         this.id = uuidv4()
         this.setUI()
@@ -55,8 +56,8 @@ id: string
         this.ui.className = "project-card" // ger ui div:en klassen "project-card" och ger CSS-style enligt classen
        // skapar en ny div med innehåll enligt nedan.
         this.ui.innerHTML = ` 
-    <div class="card-header">
-                <p style="background-color: #57ca34; padding: 10px; border-radius: 8px; aspect-ratio: 1;">HC</p>
+    <div class="card-header">            
+    <p style="background-color: #57ca34; padding: 10px; border-radius: 8px; aspect-ratio: 1;">${this.name.slice(0,2)}</p> //M2-Assignment Q#1
                 <div>
                 <h5>${this.name}</h5>
                 <p>${this.description}</p>
