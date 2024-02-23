@@ -1,6 +1,19 @@
 import { getPositionOfLineAndCharacter } from 'typescript';
 import { v4 as uuidv4 } from 'uuid';
 
+ 
+const colorArray = ['blue', 'green'];
+
+function colorChange() {
+    const colorChange = document.getElementsByClassName("card-header-icon");
+    if (colorChange instanceof HTMLElement) {
+        colorChange.innerHTML = colorArray[Math.floor(Math.random() * colorArray.length)];
+    } else {
+        console.log("card-header-icon");
+    }
+}
+    
+
 
 // För att det är valbara alternativ
 export type role = "Admin" | "Manager" | "Developer" | "Designer"
@@ -31,6 +44,7 @@ progess: number = 0
 id: string
 
 
+
     constructor(data: IProject) {
         //project card Property defintion 
         for (const key in data) {
@@ -55,9 +69,10 @@ id: string
         this.ui = document.createElement("div") // skapar en ny div
         this.ui.className = "project-card" // ger ui div:en klassen "project-card" och ger CSS-style enligt classen
        // skapar en ny div med innehåll enligt nedan.
+        //M2-Assignment Q#1
         this.ui.innerHTML = ` 
     <div class="card-header">            
-    <p style="background-color: #57ca34; padding: 10px; border-radius: 8px; aspect-ratio: 1;">${this.name.slice(0,2)}</p> //M2-Assignment Q#1
+    <p style="background-color: ${colorChange}; padding: 10px; border-radius: 8px; aspect-ratio: 1;">${this.name.slice(0,2)}</p>
                 <div>
                 <h5>${this.name}</h5>
                 <p>${this.description}</p>
@@ -82,7 +97,5 @@ id: string
                 </div>
             </div>
     `}
-
-    
 }
- 
+
