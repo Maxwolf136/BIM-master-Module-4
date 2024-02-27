@@ -42,6 +42,8 @@ if (newProjectBtn) {
 }
 
 
+
+
  /*KLickar på knappen "New Project" och skapar en ny div med klassen "project" 
 const closeBtn=document.getElementById("close-btn")
 if (closeBtn) {
@@ -74,14 +76,15 @@ if(projectForm && projectForm instanceof HTMLFormElement) {
             date: new Date (formData.get("date") as string) //
         }
         
-
+ 
 try {
     const project = projectManager.newProject(projectProperty) // skapar en ny variabel som är av typen projectManager och kallar på metoden newProject
    // nameLength()
     projectForm.reset() // rensar inputfälten
     toggleModal("new-project-modal")
     console.log(project)
-    
+
+
 
     } catch (error) {
        const errorElement = document.getElementById("pop-up-modal") as HTMLElement

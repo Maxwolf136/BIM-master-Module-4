@@ -10,7 +10,6 @@ function changeColorIcon() {
 
 
 
-
 // För att det är valbara alternativ
 export type role = "Admin" | "Manager" | "Developer" | "Designer"
 export type status = "pending" | "closed " | "archived"
@@ -24,6 +23,8 @@ export interface IProject {
     date: Date
 
 }
+
+
 
 
 export class Project implements IProject{
@@ -42,32 +43,40 @@ id: string
 
 
  constructor(data: IProject) {
-        //project card Property defintion 
+        //project card Property defintion
+      
         for (const key in data) {
             this[key] = data[key]
             console.log(key, data[key])
         }
-        const key =  this.id
+        const key = this.id;
         if (this[key] === data[key]) {
-            console.log("not successful")
+            console.log("successful");
         }
         if (this[key] !== data[key]) {
-            console.log("successful")
+            console.log("not successful");
         }
+        //M2-Assigment Q#4
+        if (this.date !== undefined) {
+            console.warn("ingen dataum satt")
+            this.date = new Date('1994-03-14')    
+        }
+       
+            
 
-        this.id = uuidv4()
-        this.setUI()
+        
+        this.id = uuidv4();
+        this.setUI();
+        
     }
 
-
-
+    
     setUI() { 
         if (this.ui){return}
         this.ui = document.createElement("div") // skapar en ny div
         this.ui.className = "project-card" // ger ui div:en klassen "project-card" och ger CSS-style enligt classen
         //M2-Assignment Q#2
         const randomColor = changeColorIcon()
-        
         
         //M2-Assignment Q#1
         this.ui.innerHTML = ` 
@@ -97,5 +106,6 @@ id: string
                 </div>
             </div>
     `}
+    
 }
 

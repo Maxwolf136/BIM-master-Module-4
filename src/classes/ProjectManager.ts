@@ -1,5 +1,6 @@
 import { formatMessages } from 'esbuild';
 import { Project, IProject } from './Project';
+import { Input } from 'postcss';
 
 export class ProjectManager {
    // interna clsser/property
@@ -26,13 +27,9 @@ export class ProjectManager {
                 if (nameInUse) {
                     throw new Error(data.name + "finns redan") // skapar en ny error som skickar ut ett meddelande om att namnet redan finns
                     
-                }
-            {
+            }
 
-         }
-                
-                
-            const project = new Project(data)
+            const project = new Project(data);
             project.ui.addEventListener("click", () => {
                 const projectPage = document.getElementById("project-page") as HTMLDivElement   
                 const detailsPage = document.getElementById("project-details") as HTMLDivElement
