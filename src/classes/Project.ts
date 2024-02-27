@@ -1,23 +1,19 @@
-import { getPositionOfLineAndCharacter } from 'typescript';
 import { v4 as uuidv4 } from 'uuid';
 
- 
-const colorArray = ['blue', 'green'];
+ //M2-Assignment Q#2
+const colorArray = ['blue', 'green', 'red', 'yellow', 'orange', 'purple', 'pink', 'brown', 'black', 'grey'];
 
-function colorChange() {
-    const colorChange = document.getElementsByClassName("card-header-icon");
-    if (colorChange instanceof HTMLElement) {
-        colorChange.innerHTML = colorArray[Math.floor(Math.random() * colorArray.length)];
-    } else {
-        console.log("card-header-icon");
-    }
+function changeColorIcon() {
+    const color = colorArray[Math.floor(Math.random() * colorArray.length)];
+    return color;   
 }
-    
+
+
 
 
 // För att det är valbara alternativ
 export type role = "Admin" | "Manager" | "Developer" | "Designer"
-export type status = "pending" | "closed" | "archived"
+export type status = "pending" | "closed " | "archived"
 
 
 export interface IProject {
@@ -45,7 +41,7 @@ id: string
 
 
 
-    constructor(data: IProject) {
+ constructor(data: IProject) {
         //project card Property defintion 
         for (const key in data) {
             this[key] = data[key]
@@ -58,21 +54,25 @@ id: string
         if (this[key] !== data[key]) {
             console.log("successful")
         }
-   
 
         this.id = uuidv4()
         this.setUI()
     }
 
+
+
     setUI() { 
         if (this.ui){return}
         this.ui = document.createElement("div") // skapar en ny div
         this.ui.className = "project-card" // ger ui div:en klassen "project-card" och ger CSS-style enligt classen
-       // skapar en ny div med innehåll enligt nedan.
+        //M2-Assignment Q#2
+        const randomColor = changeColorIcon()
+        
+        
         //M2-Assignment Q#1
         this.ui.innerHTML = ` 
     <div class="card-header">            
-    <p style="background-color: ${colorChange}; padding: 10px; border-radius: 8px; aspect-ratio: 1;">${this.name.slice(0,2)}</p>
+    <p style="background-color: ${randomColor}; padding: 10px; border-radius: 8px; aspect-ratio: 1;">${this.name.slice(0,2)}</p>
                 <div>
                 <h5>${this.name}</h5>
                 <p>${this.description}</p>

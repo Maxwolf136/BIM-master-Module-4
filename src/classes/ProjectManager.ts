@@ -15,11 +15,22 @@ export class ProjectManager {
             const projectNames = this.list.map((project) =>  {
                 return project.name
             })
+
+            //M2-Assigment Q#3
+            const nameToLong = data.name.length > 5
+            if (nameToLong){
+                console.warn("för långt namn")
+                return false 
+            } 
             const nameInUse = projectNames.includes(data.name)
                 if (nameInUse) {
                     throw new Error(data.name + "finns redan") // skapar en ny error som skickar ut ett meddelande om att namnet redan finns
                     
                 }
+            {
+
+         }
+                
                 
             const project = new Project(data)
             project.ui.addEventListener("click", () => {
@@ -46,7 +57,8 @@ export class ProjectManager {
             const date = document.querySelector("[card-data-date='date']") 
             //M2-Assignment Q#1
             const nameIcon= document.querySelector("[class-header-class='dashboard-card-header']")
-
+            
+            
             if (name && description && role && status && date && nameIcon) {	
                 name.textContent = project.name
                 description.textContent = project.description
@@ -55,6 +67,7 @@ export class ProjectManager {
                 date.textContent = project.date.toDateString()
                 //M2-Assignment Q#1
                 nameIcon.textContent = project.name.substring(0,2)
+
             }
         }
 
