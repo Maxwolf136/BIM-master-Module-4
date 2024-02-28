@@ -66,31 +66,33 @@ export class ProjectManager {
 
             }
         }
-
+/* #5
         editProjectInformation(id: string, data: IProject) {
             const editProjectbtn = document.getElementById("btn-secondary") as HTMLButtonElement
             if(editProjectbtn) {
                 editProjectbtn.addEventListener('click', () => {
-                    const projectInformation = this.getProject(id)
-                    if(!projectInformation){
-                        console.warn ("no project found")
-                        return
-                    }
-                projectInformation.name = data.name
-                projectInformation.description = data.description;
-                projectInformation.role = data.role;
-                projectInformation.status = data.status;
-                projectInformation.date = new Date(data.date);
-                projectInformation.cost = data.cost;
+                const projectInformation = this.getProject(id);
+                if (!projectInformation) {
+                    console.warn("no project found");
+                    return;
+                }
 
-                const projectInfo = document.getElementById (projectInformation.id)
-                if (!projectInfo) {return}
-                
-                
+                openModal().then(data => {
+                    projectInformation.name = data.name;
+                    projectInformation.description = data.description;
+                    projectInformation.role = data.role;
+                    projectInformation.status = data.status;
+                    projectInformation.date = new Date(data.date);
+                    projectInformation.cost = data.cost;
+                });
+
+                async function openModal(): Promise<IProject> {
+                    // Code to open the modal and return a Promise that resolves with the input data
+                };
                 }) 
-            }
+            };
         }
-
+*/
         getProject(id:string) {
             const project= this.list.find((project) => {
                 return project.id === id      

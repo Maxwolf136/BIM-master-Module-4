@@ -1,6 +1,8 @@
 import { IProject, role, status } from "./classes/Project"
 import { ProjectManager } from "./classes/ProjectManager"
 
+export 
+
 
 function showModal(id:string) {
     const modal = document.getElementById(id)
