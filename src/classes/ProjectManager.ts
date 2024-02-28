@@ -1,6 +1,5 @@
-import { formatMessages } from 'esbuild';
 import { Project, IProject } from './Project';
-import { Input } from 'postcss';
+
 
 export class ProjectManager {
    // interna clsser/property
@@ -65,6 +64,30 @@ export class ProjectManager {
                 //M2-Assignment Q#1
                 nameIcon.textContent = project.name.substring(0,2)
 
+            }
+        }
+
+        editProjectInformation(id: string, data: IProject) {
+            const editProjectbtn = document.getElementById("btn-secondary") as HTMLButtonElement
+            if(editProjectbtn) {
+                editProjectbtn.addEventListener('click', () => {
+                    const projectInformation = this.getProject(id)
+                    if(!projectInformation){
+                        console.warn ("no project found")
+                        return
+                    }
+                projectInformation.name = data.name
+                projectInformation.description = data.description;
+                projectInformation.role = data.role;
+                projectInformation.status = data.status;
+                projectInformation.date = new Date(data.date);
+                projectInformation.cost = data.cost;
+
+                const projectInfo = document.getElementById (projectInformation.id)
+                if (!projectInfo) {return}
+                
+                
+                }) 
             }
         }
 
