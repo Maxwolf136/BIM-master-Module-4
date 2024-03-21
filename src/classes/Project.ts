@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { ProjectManager } from './ProjectManager';
 
  //M2-Assignment Q#2
 const colorArray = ['blue', 'green', 'red', 'yellow', 'orange', 'purple', 'pink', 'brown', 'black', 'grey'];
@@ -23,6 +24,7 @@ export interface IProject {
     date: Date
 
 }
+
 
 
 
@@ -62,14 +64,11 @@ id: string
             this.date = new Date('1994-03-14')    
         }
        
-            
-
-        
         this.id = uuidv4();
         this.setUI();
-        
+    
+   
     }
-
     
     setUI() { 
         if (this.ui){return}
@@ -108,4 +107,3 @@ id: string
     `}
     
 }
-

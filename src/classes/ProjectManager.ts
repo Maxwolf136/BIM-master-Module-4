@@ -1,5 +1,7 @@
+import { Input } from 'postcss';
 import { Project, IProject } from './Project';
 
+//import * as showModal from "./"
 
 export class ProjectManager {
    // interna clsser/property
@@ -27,32 +29,48 @@ export class ProjectManager {
                     throw new Error(data.name + "finns redan") // skapar en ny error som skickar ut ett meddelande om att namnet redan finns
                     
             }
-
+            
             const project = new Project(data);
             project.ui.addEventListener("click", () => {
                 const projectPage = document.getElementById("project-page") as HTMLDivElement   
                 const detailsPage = document.getElementById("project-details") as HTMLDivElement
-                if (!projectPage || !detailsPage) {return}
+                if (!detailsPage) {return}
                 projectPage.style.display = "none"
                 detailsPage.style.display = "flex"
                 this.setDetailsPage(project)
-        })
-            this.ui.append(project.ui)
-            this.list.push(project)
+
+                
+                
+                
+        })  
+        const projectPage = document.getElementById("project-page") as HTMLDivElement;
+        const homePageButton = document.getElementById("homebtn") as HTMLButtonElement;
+        if (homePageButton) {
+            homePageButton.addEventListener("click", ()=>
+            projectPage.style.display = "flex"
+         
+            )   
+        }
+            
+        this.ui.append(project.ui);
+        this.list.push(project);
             return project
         }
+
+        
+        
  
         private setDetailsPage(project: Project) {
             const detailsPage = document.getElementById("project-details") as HTMLDivElement
 
             if (!detailsPage) {return}
-            const name = document.querySelector("[data-project-info='name']")
-            const description = document.querySelector("[data-project-description='description']")
-            const role = document.querySelector("[card-project-role='role']")
-            const status = document.querySelector("[card-project-status='card-status']")
-            const date = document.querySelector("[card-data-date='date']") 
+                const name = document.querySelector("[data-project-info='name']")
+                const description = document.querySelector("[data-project-description='description']")
+                const role = document.querySelector("[card-project-role='role']")
+                const status = document.querySelector("[card-project-status='card-status']")
+                const date = document.querySelector("[card-data-date='date']") 
             //M2-Assignment Q#1
-            const nameIcon= document.querySelector("[class-header-class='dashboard-card-header']")
+                const nameIcon= document.querySelector("[class-header-class='dashboard-card-header']")
             
             
             if (name && description && role && status && date && nameIcon) {	
@@ -66,34 +84,10 @@ export class ProjectManager {
 
             }
         }
-/* #5
-        editProjectInformation(id: string, data: IProject) {
-            const editProjectbtn = document.getElementById("btn-secondary") as HTMLButtonElement
-            if(editProjectbtn) {
-                editProjectbtn.addEventListener('click', () => {
-                const projectInformation = this.getProject(id);
-                if (!projectInformation) {
-                    console.warn("no project found");
-                    return;
-                }
 
-                openModal().then(data => {
-                    projectInformation.name = data.name;
-                    projectInformation.description = data.description;
-                    projectInformation.role = data.role;
-                    projectInformation.status = data.status;
-                    projectInformation.date = new Date(data.date);
-                    projectInformation.cost = data.cost;
-                });
+        
 
-                async function openModal(): Promise<IProject> {
-                    // Code to open the modal and return a Promise that resolves with the input data
-                };
-                }) 
-            };
-        }
-*/
-        getProject(id:string) {
+       getProject(id:string) {
             const project= this.list.find((project) => {
                 return project.id === id      
             })
@@ -122,7 +116,22 @@ export class ProjectManager {
                 return projectname.name === id
             })
             
+            
         }
+
+     /*/ editProjectInformation (data:IProject) {
+        const editProjectInformation = r
+        for (const project of projects) {
+            try {
+                this.newProject(project)
+            } catch (error) {
+                console.warn(error)
+            }
+        }
+    } */
+
+
+
 
 
         exportJSON(filename: string = "projects.json") {
@@ -136,7 +145,7 @@ export class ProjectManager {
             URL.revokeObjectURL(url)
         }
 
-        //test editera
+
         importJSON(){
             const input = document.createElement(`input`)
             input.type = `file`
@@ -163,4 +172,5 @@ export class ProjectManager {
             })
             input.click()
         }
+        
     }

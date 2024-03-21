@@ -13,21 +13,18 @@
 <aside id="sidebar">
         <img id="Company-logo" src="./assets/Company-logo.svg" alt="">
         <ul id="nav-buttons">
-            <li class="material-symbols-outlined">home
+            <button id="homebtn" class="material-symbols-outlined">HOME
                 <div>Home</div>
-            </li>
-            <li class="material-icons">dashboard
-                <div>Projects Tasks</div>
-            </li>
-            <li class="material-symbols-outlined">settings
-                <div>Settings</div>
-            </li>
-            <li class="material-symbols-outlined">logout
-                <div>Logout</div>
-            </li>
-            <li class="material-symbols-outlined">data_alert
+            </button>
+            <button id="sidebarbtn" class="material-symbols-outlined">check
                 <div>IDS</div>
-            </li>
+            </button>
+            <button id="sidebarbtn" class="material-symbols-outlined">dashboard
+                <div>Dashboard</div>
+            </button>
+            <button id="sidebarbtn" class="material-symbols-outlined">Settings
+                <div>Settings</div>
+            </button>
         </ul>
     </aside>
     <main id="content">
@@ -44,7 +41,7 @@
                     <div class="form-field-container">
                         <i class="fa-regular fa-rectangle-list"></i>
                         <label>Description</label>
-                        <textarea name="description" cols="30" rows="5" placeholder="give me number"></textarea>
+                        <input name="description" cols="30" rows="5" placeholder="give me number"></input>
                     <div class="form-field-container"></div>
                         <i class="fa-regular fa-user"></i>
                         <label>Role</label>
@@ -127,12 +124,61 @@
                     <p data-project-description="description">Mitt projektbeskrivnings</p>
                 </div>
             </header>
+            <dialog id="edit-project-modal">
+                <form id="edit-project-form" >
+                    <h2>Edit Project</h2>
+                    <div class="input-list">
+                        <div class="form-field-container">
+                            <i class="fa-regular fa-building"></i>
+                            <label>Name</label>
+                            <!--//M2-Assigment Q#3 -->
+                            <input name="name" type="text"   placeholder=" What is the name of your project?">
+                        <div class="form-field-container">
+                            <i class="fa-regular fa-rectangle-list"></i>
+                            <label>Description</label>
+                            <input name="description" cols="30" rows="5" placeholder="give me number"></input>
+                        <div class="form-field-container"></div>
+                            <i class="fa-regular fa-user"></i>
+                            <label>Role</label>
+                            <select name="role">
+                                <option>Admin</option>
+                                <option>Manager</option>
+                                <option>Developer</option>
+                                <option>Designer</option>
+                            </select>
+                        <div class="form-field-container"></div>
+                            <i class="fa-regular fa-chart-bar"></i>
+                            <label>Status</label>
+                            <select name="status">
+                                <option>Pending</option>
+                                <option>Closed</option>
+                                <option>Archive</option>
+                            </select>
+                        <div class="form-field-container"></div>
+                    </div>
+                        </div>
+                        <div class="form-field-container"></div>
+                        <i class="fa-regular fa-chart-bar"></i>
+                                <label>Finish date</label>
+                        <input name="date" type="date">
+                    <div class="button-container">
+                        <button id="close-btn"  type="button" style=" align-items:end; color: white; padding: 9px; border-radius: 6px;">Cancel</button>
+                        <button type="submit" style="color: white; background-color: rgb(0, 255, 13); padding: 9px; border-radius: 6px;">Create</button>
+                </form>
+                <dialog id="pop-up-modal" style="display:none; ">
+                    <div id="pop-up-container">
+                        <h2 class="fa fa-warning">Warning!</h2>
+                         <p id="Alert-message">Projektet har samma namn</p>
+                        <button id="close-pop-up-btn" type="button">Close</button>
+                    </div>
+                </dialog>
+            </dialog>
             <div class="main-page-content">
                 <div style="display: flex; flex-direction: column; row-gap: 30px;">
                     <div class="dashboard-card" style="padding: 30px 0;">
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 0px; margin-bottom: 30px;">
                         <p class-header-class="dashboard-card-header" style="font-size: 20px; background-color: orange; aspect-ratio: 1; border-radius: 100%; padding: 15px; margin: 20px;">dtest </p>
-                        <button class="btn-secondary"><p style="width: 100%;">Edit</p> </button>
+                        <button id="edit-button"><p style="width: 100%;">Edit Project</p> </button>
                     </div>
                     <div style="padding: 0 20px;">
                         <h3>Hospital Center</h3>

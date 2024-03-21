@@ -1,7 +1,6 @@
-import { IProject, role, status } from "./classes/Project"
+import { IProject, Project, role, status } from "./classes/Project"
 import { ProjectManager } from "./classes/ProjectManager"
 
-export 
 
 
 function showModal(id:string) {
@@ -113,6 +112,7 @@ console.log(closeBtn)
 }
 
 
+
 const exportBtn = document.getElementById("export-btn")
 if(exportBtn)  {
     exportBtn.addEventListener("click", () => {
@@ -124,6 +124,15 @@ const importBtn = document.getElementById("import-btn")
 if(importBtn)  {
     importBtn.addEventListener("click", () => {
         projectManager.importJSON()
-      })
+    })
 }
+
+
+
+
+//
+
+
+
+
 

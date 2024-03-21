@@ -44,23 +44,33 @@ body {
   list-style: none;
   padding: 5px;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 10px;
   cursor: pointer;
-  background-color: grey;
-  display:flex;
+  background-color: rgb(59, 59, 59);
+  display: flex;
   flex-direction: column;
   text-align: left;
   align-items: left;
+  border-radius: 
 }
 
-#nav-buttons li:hover {
-  background-color: var(--primary);
-}
-
-
-#nav-buttons li {
-  padding:5px;
+#homebtn {
   border-radius: 10px;
+}
+
+#homebtn :hover {
+  color: #f5a623;
+}
+
+#buttons li:hover {
+  background-color: coral;
+  border-radius: 10px;
+}
+
+
+#sidebarbtn li {
+  padding:5px;
+  border-radius: 60px;
   transition: 0.3s;
   display: flex;
   text-align:left;
