@@ -1,5 +1,6 @@
 import { Input } from 'postcss';
 import { Project, IProject } from './Project';
+import { showModal,  } from './Modal';
 
 //import * as showModal from "./"
 
@@ -58,7 +59,7 @@ export class ProjectManager {
         }
 
         
-        
+    
  
         private setDetailsPage(project: Project) {
             const detailsPage = document.getElementById("project-details") as HTMLDivElement
@@ -85,9 +86,8 @@ export class ProjectManager {
             }
         }
 
-        
 
-       getProject(id:string) {
+        getProject(id:string) {
             const project= this.list.find((project) => {
                 return project.id === id      
             })
@@ -118,20 +118,17 @@ export class ProjectManager {
             
             
         }
-
-     /*/ editProjectInformation (data:IProject) {
-        const editProjectInformation = r
-        for (const project of projects) {
-            try {
-                this.newProject(project)
-            } catch (error) {
-                console.warn(error)
+        updateProject(updatedProject: Project) {
+            // Find the index of the project in the list array
+            const index = this.list.findIndex(project => project.id === updatedProject.id);
+    
+            if (index !== -1) {
+                // Update the project in the list array
+                this.list[index] = updatedProject;
+            } else {
+                throw new Error('Project not found');
             }
         }
-    } */
-
-
-
 
 
         exportJSON(filename: string = "projects.json") {

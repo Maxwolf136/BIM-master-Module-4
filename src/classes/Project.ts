@@ -42,7 +42,7 @@ cost: number = 2
 progess: number = 0
 id: string
 
-
+ 
 
  constructor(data: IProject) {
         //project card Property defintion
@@ -105,5 +105,16 @@ id: string
                 </div>
             </div>
     `}
-    
+
+    updateProperties(properties: IProject) {
+        this.name = properties.name
+        this.role = properties.role;
+        this.status = properties.status;
+        this.date = properties.date;
+
+        // Update the UI to reflect the new properties
+        this.setUI();
+    }
+
 }
+

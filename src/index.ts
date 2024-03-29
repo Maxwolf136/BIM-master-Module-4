@@ -1,34 +1,11 @@
 import { IProject, Project, role, status } from "./classes/Project"
 import { ProjectManager } from "./classes/ProjectManager"
+import { closeModal, showModal, toggleModal, } from "./classes/Modal"
 
 
 
-function showModal(id:string) {
-    const modal = document.getElementById(id)
-    if (modal && modal instanceof HTMLDialogElement) { // om modalen finns och är av typen HTMLDialogElement
-        modal.showModal()
-    } else {
-        console.warn("No modal found:", id)
-    }
-}
-function closeModal(id: string) {
-    const modal = document.getElementById(id)
-    if (modal && modal instanceof HTMLDialogElement) {
-      modal.close()
-    } else {
-      console.warn("The provided modal wasn't found. ID: ", id)
-    }
-  }
 
-//Toggle stänger ner när form är submittad
-function toggleModal(id:string) {
-    const modal = document.getElementById(id)   
-    if (modal && modal instanceof HTMLDialogElement) { // om modalen finns och är av typen HTMLDialogElement
-        modal.close()
-    } else {
-        console.warn("No modal found:", id)
-    }
-}
+
 
 
 const projectlistUI = document.getElementById("project-list") as HTMLDivElement
@@ -82,7 +59,7 @@ try {
     const project = projectManager.newProject(projectProperty) // skapar en ny variabel som är av typen projectManager och kallar på metoden newProject
    // nameLength()
     projectForm.reset() // rensar inputfälten
-    toggleModal("new-project-modal")
+    toggleModal ("new-project-modal")
     console.log(project)
 
 
@@ -126,13 +103,65 @@ if(importBtn)  {
         projectManager.importJSON()
     })
 }
+// Get a reference to the "Edit-button"
+const editButton = document.getElementById("edit-button") as HTMLButtonElement;
+if (editButton) {
+    // Add a click event listener to the "Edit-button"
+    editButton.addEventListener("click", () => {
+        // Create a new instance of the modal class and show the modal
+        const editModal = new showModal('edit-project-modal');
+        editModal.showModal()
 
+        const editForm = document.getElementById("edit-project-form") as HTMLFormElement;
+        if (editForm instanceof HTMLFormElement) {
+            editForm.addEventListener("submit", (event) => {
+                // Prevent the form from submitting normally
+                event.preventDefault();
 
+                // Get the form data
+                const formData = new FormData(editForm);
+                const projectProperty: IProject = {
+                    description: formData.get("description") as string,
+                    name: formData.get("name") as string,
+                    role: formData.get("role") as role,
+                    status: formData.get("status") as status,
+                    date: new Date(formData.get("date") as string)
+                };
+                
+            const currentProject = projectManager.getProject(editForm.dataset.projectId as string);
 
+            if (currentProject) {
+                currentProject.updateProperties(projectProperty);
+                projectManager.updateProject(currentProject);
 
-//
+                // Create a new Project object with the form data and edit the project
+                /* const projectEdit = new Project(projectProperty);
+                projectManager.newProject(projectEdit) */
+                
+            }
 
+        const updateBtn = document.getElementById("updateBtn") as HTMLButtonElement
+        if(updateBtn){
+            updateBtn.addEventListener("submit", (e) => {
+                e.preventDefault();
+                editForm.dataset.name 
 
+                const formData = new FormData()
+                const property: IProject = {
+                    name: formData.set("name", "example value")
+                }
 
+                const currentProject = projectManager.getProject(editForm.dataset.projectId as string);
 
+                if(currentProject) {
+                    currentProject.updateProperties(property)
+                }
+            })
 
+        }
+        
+
+    });
+}
+})
+}
