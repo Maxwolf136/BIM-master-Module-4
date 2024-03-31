@@ -1,6 +1,6 @@
 import { Input } from 'postcss';
 import { Project, IProject } from './Project';
-import { showModal,  } from './Modal';
+import { showModal, toggleModal,  } from './Modal';
 
 //import * as showModal from "./"
 
@@ -8,6 +8,7 @@ export class ProjectManager {
    // interna clsser/property
     list: Project[] = [] // skapar en ny array med typen Project
     ui: HTMLDivElement // skapar en ny variabel som är av typen HTMLDivElement
+    id: string
 
 // constructor
     constructor(container: HTMLDivElement) {
@@ -38,7 +39,7 @@ export class ProjectManager {
                 if (!detailsPage) {return}
                 projectPage.style.display = "none"
                 detailsPage.style.display = "flex"
-                this.setDetailsPage(project)
+                this.setDetailsPage(project, this.id)
 
                 
                 
@@ -59,31 +60,29 @@ export class ProjectManager {
         }
 
         
-    
+        
  
-        private setDetailsPage(project: Project) {
+        setDetailsPage(project: Project, id: string) {
             const detailsPage = document.getElementById("project-details") as HTMLDivElement
-
+            this.id = project.id
             if (!detailsPage) {return}
                 const name = document.querySelector("[data-project-info='name']")
                 const description = document.querySelector("[data-project-description='description']")
                 const role = document.querySelector("[card-project-role='role']")
                 const status = document.querySelector("[card-project-status='card-status']")
                 const date = document.querySelector("[card-data-date='date']") 
-            //M2-Assignment Q#1
-                const nameIcon= document.querySelector("[class-header-class='dashboard-card-header']")
-            
-            
-            if (name && description && role && status && date && nameIcon) {	
-                name.textContent = project.name
-                description.textContent = project.description
-                role.textContent = project.role
-                status.textContent = project.status 
-                date.textContent = project.date.toDateString()
                 //M2-Assignment Q#1
-                nameIcon.textContent = project.name.substring(0,2)
+                const nameIcon= document.querySelector("[class-header-class='dashboard-card-header']")
 
-            }
+                if (name && description && role && status && date && nameIcon) {	
+                    name.textContent = project.name
+                    description.textContent = project.description
+                    role.textContent = project.role
+                    status.textContent = project.status 
+                    date.textContent = project.date.toDateString()
+                    //M2-Assignment Q#1
+                    nameIcon.textContent = project.name.substring(0,2)
+                }
         }
 
 
@@ -119,17 +118,16 @@ export class ProjectManager {
             
         }
         updateProject(updatedProject: Project) {
-            // Find the index of the project in the list array
-            const index = this.list.findIndex(project => project.id === updatedProject.id);
-    
-            if (index !== -1) {
-                // Update the project in the list array
-                this.list[index] = updatedProject;
-            } else {
+            const project = this.list.find(project => project.id === updatedProject.id);
+            if (!project) {
                 throw new Error('Project not found');
             }
+            this.list = this.list.map(project => project.id === updatedProject.id ? updatedProject : project)
         }
 
+        addProject(project: Project) {
+            this.list.push(project);
+        }
 
         exportJSON(filename: string = "projects.json") {
             const json = JSON.stringify(this.list, null, 2)

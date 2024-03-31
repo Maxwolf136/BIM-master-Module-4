@@ -3,11 +3,6 @@ import { ProjectManager } from "./classes/ProjectManager"
 import { closeModal, showModal, toggleModal, } from "./classes/Modal"
 
 
-
-
-
-
-
 const projectlistUI = document.getElementById("project-list") as HTMLDivElement
 const projectManager = new ProjectManager(projectlistUI)
 
@@ -109,8 +104,7 @@ if (editButton) {
     // Add a click event listener to the "Edit-button"
     editButton.addEventListener("click", () => {
         // Create a new instance of the modal class and show the modal
-        const editModal = new showModal('edit-project-modal');
-        editModal.showModal()
+       showModal("edit-project-modal")
 
         const editForm = document.getElementById("edit-project-form") as HTMLFormElement;
         if (editForm instanceof HTMLFormElement) {
@@ -120,47 +114,55 @@ if (editButton) {
 
                 // Get the form data
                 const formData = new FormData(editForm);
+                //OBJEKT
                 const projectProperty: IProject = {
-                    description: formData.get("description") as string,
-                    name: formData.get("name") as string,
-                    role: formData.get("role") as role,
-                    status: formData.get("status") as status,
-                    date: new Date(formData.get("date") as string)
+                    description: formData.get('description') as string,
+                    name: formData.get('name') as string,
+                    role: formData.get('role') as role,
+                    status: formData.get('status') as status,
+                    date: new Date(formData.get('date') as string)
                 };
+            
                 
-            const currentProject = projectManager.getProject(editForm.dataset.projectId as string);
-
+                const currentProject = projectManager.getProject(editForm.dataset.projectId as string);
+                console.log('Project ID:', editForm.dataset.projectId); // Debugging statement
+                console.log('Current project:', currentProject); // Debugging statement
             if (currentProject) {
-                currentProject.updateProperties(projectProperty);
+                // Update the properties of the current project
+                currentProject.description = projectProperty.description;
+                currentProject.name = projectProperty.name;
+                currentProject.role = projectProperty.role;
+                currentProject.status = projectProperty.status;
+                currentProject.date = projectProperty.date;
+            
                 projectManager.updateProject(currentProject);
-
-                // Create a new Project object with the form data and edit the project
-                /* const projectEdit = new Project(projectProperty);
-                projectManager.newProject(projectEdit) */
-                
+                projectManager.setDetailsPage(currentProject, id);
             }
 
-        const updateBtn = document.getElementById("updateBtn") as HTMLButtonElement
-        if(updateBtn){
-            updateBtn.addEventListener("submit", (e) => {
-                e.preventDefault();
-                editForm.dataset.name 
+           /* const updateBtn = document.getElementById("updateBtn") as HTMLButtonElement;
+            if (updateBtn) {
+                updateBtn.addEventListener("click", () => {
+                    const formData = new FormData(editForm);
 
-                const formData = new FormData()
-                const property: IProject = {
-                    name: formData.set("name", "example value")
-                }
+                    const newProject: IProject = {
+                        description: formData.get('description') as string,
+                        name: formData.get('name') as string,
+                        role: formData.get('role') as role,
+                        status: formData.get('status') as status,
+                        date: new Date(formData.get('date') as string)
+                    };
+                    const project = new Project(newProject);
+                    projectManager.newProject(project);
+                    projectManager.setDetailsPage(project);
+                })
+            } */
 
-                const currentProject = projectManager.getProject(editForm.dataset.projectId as string);
 
-                if(currentProject) {
-                    currentProject.updateProperties(property)
-                }
-            })
-
-        }
-        
-
+            const closeBtn = document.getElementById("close-btn")
+            closeBtn.addEventListener("click", (event) => {closeModal("edit-project-modal")})   
+            event.preventDefault()
+            closeModal("edit-project-modal")
+            
     });
 }
 })

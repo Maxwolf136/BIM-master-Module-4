@@ -64,6 +64,7 @@ id: string
             this.date = new Date('1994-03-14')    
         }
        
+        //UNIK ID per Projekt
         this.id = uuidv4();
         this.setUI();
     
@@ -113,7 +114,7 @@ id: string
         this.date = properties.date;
 
         // Update the UI to reflect the new properties
-        this.setUI();
+        this.setUI()
     }
 
 }

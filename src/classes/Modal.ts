@@ -13,7 +13,7 @@ export function toggleModal (id:string) {
 }
 
 
-export function showModal(id:string) {
+export function showModal(id:string ) {
     const modal = document.getElementById(id)
     if (modal && modal instanceof HTMLDialogElement) { // om modalen finns och är av typen HTMLDialogElement
         modal.showModal()
@@ -21,6 +21,21 @@ export function showModal(id:string) {
         console.warn("No modal found:", id)
     }
 }
+
+
+/*
+
+export function showModal(id: string, projectId: string) {
+  const modal = document.getElementById(id);
+  if (modal && modal instanceof HTMLDialogElement) {
+      modal.showModal()  
+    const editForm = document.getElementById("edit-project-form") as HTMLFormElement;
+      if (editForm) {
+          editForm.dataset.projectId = projectId; // Set the projectId data attribute on the form
+      }
+  }
+}
+*/
 
 export function closeModal(id: string) {
     const modal = document.getElementById(id)
