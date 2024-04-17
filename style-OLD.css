@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+:root {
+  --primary: #f5a623;
+  --secondary: #716d6d;
+  --tertiary: #8e8b8b;
+  --quaternary: #524f4f;
+  --quinary: #f7f7f7;
+  --senary: #f7f7f7;
+  --septenary: #f7f7f7;
+  --octonary: #f7f7f7;
+  --nonary: #f7f7f7;
+  --denary: #f7f7f7;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-areas: 'sidebar, content';
+  height: 100vh;
+  background-color: var(--secondary);
+  color: #fff;
+}
+
+/* Sidebar */
+
+#sidebar {
+  background-color: #6f7072;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  margin: 0px;
+
+}
+
+
+
+#nav-buttons {
+  list-style: none;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 10px;
+  cursor: pointer;
+  background-color: rgb(172, 165, 165);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: left;
+  border-radius: 
+}
+
+#homebtn {
+  border-radius: 10px;
+}
+
+#homebtn :hover {
+  color: #f5a623;
+}
+
+#buttons li:hover {
+  background-color: coral;
+  border-radius: 10px;
+}
+
+
+#sidebarbtn {
+  padding:20px;
+  margin: 2px;
+  border-radius: 20px;
+  transition: 0.3s;
+  display: flex;
+  text-align:center;
+  width: flex;
+}
+
+#Company-logo {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+
+
+header {
+  padding: 30px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.project-card {
+  background-color: #18191a;
+  border-radius: 8px;
+  cursor: pointer;
+  
+}
+
+.project-card:hover {
+  outline: 2px solid var(--primary);
+}
+
+.card-header {
+  display: flex;
+  column-gap: 20px;
+  padding: 15px 20px;
+  border-bottom: 2px solid #3b3c3f;
+  height: 60px;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-content {
+  display: flex;
+  padding: 10px 10px;
+  column-gap: 20px;
+  flex-direction: column;
+  row-gap: 5px;
+  align-content: start;
+}
+
+.card-property {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+} 
+
+#project-list {
+  display: grid;  
+  padding: 20px 40px;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Form Styles */
+dialog {
+  background-color: transparent;
+  border: none;
+  margin:auto;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+form {
+  width: 450px;
+  border-radius: 10px;
+  background-color: var(--secondary);
+  color: white;
+}
+
+form h2 {
+  text-align: left;
+  margin: 25px;
+  padding: 25px;
+  border-bottom: 2px solid var(--quaternary)
+}
+
+form .input-list {
+  row-gap: 20px;
+  padding: 30px;
+  margin: 20px;
+}
+
+ input {
+  color: rgb(49, 47, 47);
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  width: 250px;
+  margin: 15px;
+}
+
+
+select {
+  color: rgb(49, 47, 47);
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  width: 350px;
+  margin: 10px;
+}
+
+
+.input-icon {
+  display: flex;
+  align-items:center;
+}
+.icon {
+  margin-right: 5px; /* adjust spacing as needed */
+}
+
+
+
+textarea {
+  color: #3b3c3f;
+  background-color: white;
+  border-radius: 10px;
+  width: 350px;
+  margin: 15px;
+}
+
+
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--primary);
+}
+
+#button-container {
+  display: flex;
+  justify-content: flex-end; /* Aligns items to the right */
+  padding: 15px; /* Add padding as needed */
+  background-color: #524f4f;
+}
+
+/* If you want space between the buttons, you can add margin to the button */
+
+
+#new-project-btn {
+  color: white; 
+  background-color: transparent ; 
+  padding: 20px; 
+  border-radius: 6px;
+  font-size: medium;
+  display: flex;
+  cursor: pointer;
+  text-align:  center;
+  align-items: center;
+}
+
+
+.fa-add:before, .fa-plus:before {
+  display: flex;
+  margin: 2px;
+}
+
+/** Project details page**/
+
+.dashboard-card {
+  background-color: var(--quaternary);
+  border-radius: 8px;
+  display: inline;
+  flex-direction: column-reverse;
+}
+
+
+.dashboard-card-header {
+ text-transform: uppercase;
+}
+
+
+.dashboard-card-details {
+  display:inline-block;
+  flex-direction:row;
+  row-gap: 70px;
+  margin: 20px;
+  
+}
+
+#project-details > .main-page-content {
+  display: grid;
+  padding: 20px 40px;
+  gap: 30px;
+  grid-template-columns: 475px 1fr;
+  height: 100%;
+}
+
+.btn-secondary {
+  background-color: transparent; 
+  outline: 2px solid rgb(99, 84, 63); 
+  width: 100px;
+  color: white; 
+  text-align: center;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.btn-secondary:hover {
+  background-color: var(--quinary); 
+  outline: none;
+}
+
+.T-do {
+  padding: 20px;
+  background-color: var(--background-200);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.T-do :hover {
+  background-color: var(--primary);
+}
+
+
+#pop-up-modal {
+  background-color: #f5a623;
+  color: white;
+  padding-block: 20px;
+  border-radius: 10px;
+  top: 30px;
+  bottom: 120px;
+  width: 75%;
+  
+  
+}
+
+#pop-up-container {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  height: 50%;
+}
+
+#Alert-message {
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  font: 500 20px 'Lato', sans-serif;
+}
+
+#pop-up-modal h2 {
+  text-align: left;
+  align-items: center;
+  font-size: 20px;
+  margin: 10px;
+  padding: 10px;
+  border-right: 2px solid var(--quaternary);
+  border-bottom: transparent;
+  display: flex;
+  gap: 
+  10px;
+}
+
+
+
+#close-pop-up-btn {
+  background-color: #3b3c3f;
+  color: white;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 5px;
+  font-size: medium;
+}
+#close-pop-up-btn:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+
+}
+
+#export-btn {
+  background-color: #3b3c3f;
+  color: white;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 5px;
+  font-size: medium;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px;
+  
+}
+
+#import-btn{
+  background-color: #3b3c3f;
+  color: white;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 5px;
+  font-size: medium;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px;
+}

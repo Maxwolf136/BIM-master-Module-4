@@ -26,9 +26,6 @@ export interface IProject {
 }
 
 
-
-
-
 export class Project implements IProject{
     name: string
     description: string
@@ -37,10 +34,10 @@ export class Project implements IProject{
     date: Date
 
 // Variabler Property
-ui: HTMLDivElement // skapar en ny variabel som är av typen HTMLDivElement
-cost: number = 2
-progess: number = 0
-id: string
+    ui: HTMLDivElement // skapar en ny variabel som är av typen HTMLDivElement
+    cost: number = 2
+    progess: number = 0
+    id: string
 
  
 

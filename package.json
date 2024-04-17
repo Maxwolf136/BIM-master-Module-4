@@ -9,16 +9,20 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/three": "0.156.0",
     "typescript": "^5.3.3",
     "vite": "^5.1.1"
   },
   "dependencies": {
+    "bim-fragment": "1.0.22",
     "esbuild": "^0.19.12",
     "nanoid": "^3.3.7",
+    "openbim-components": "1.1.5",
     "picocolors": "^1.0.0",
     "postcss": "^8.4.35",
     "rollup": "^4.10.0",
     "source-map-js": "^1.0.2",
+    "three": "0.152.2",
     "uuid": "^9.0.1"
   },
   "description": ""

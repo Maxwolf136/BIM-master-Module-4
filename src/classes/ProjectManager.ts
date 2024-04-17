@@ -13,33 +13,43 @@ export class ProjectManager {
 // constructor
     constructor(container: HTMLDivElement) {
         this.ui = container
+        const project = this.newProject({
+            name: "defaul Project",
+            description: "this is just a default PRoject",
+            status: "pending",
+            role: "Admin", 
+            date: new Date()
+        })
+        if (project) {
+            project.ui.click();
+        }
 
     }
-        newProject(data: IProject) { // skapar en ny metod som tar in data av typen IProject
-            const projectNames = this.list.map((project) =>  {
-                return project.name
-            })
+    newProject(data: IProject) { // skapar en ny metod som tar in data av typen IProject
+        const projectNames = this.list.map((project) =>  {
+            return project.name
+        })
 
-            //M2-Assigment Q#3
-            const nameToLong = data.name.length > 5
-            if (nameToLong){
-                console.warn("för långt namn")
-                return false 
-            } 
-            const nameInUse = projectNames.includes(data.name)
-                if (nameInUse) {
-                    throw new Error(data.name + "finns redan") // skapar en ny error som skickar ut ett meddelande om att namnet redan finns
-                    
-            }
-            
-            const project = new Project(data);
-            project.ui.addEventListener("click", () => {
-                const projectPage = document.getElementById("project-page") as HTMLDivElement   
-                const detailsPage = document.getElementById("project-details") as HTMLDivElement
-                if (!detailsPage) {return}
-                projectPage.style.display = "none"
-                detailsPage.style.display = "flex"
-                this.setDetailsPage(project, this.id)
+        //M2-Assigment Q#3
+        const nameToLong = data.name.length > 5
+        if (nameToLong){
+            console.warn("för långt namn")
+            return false 
+        } 
+        const nameInUse = projectNames.includes(data.name)
+            if (nameInUse) {
+                throw new Error(data.name + "finns redan") // skapar en ny error som skickar ut ett meddelande om att namnet redan finns
+                
+        }
+        
+        const project = new Project(data);
+        project.ui.addEventListener("click", () => {
+            const projectPage = document.getElementById("project-page") as HTMLDivElement   
+            const detailsPage = document.getElementById("project-details") as HTMLDivElement
+            if (!detailsPage) {return}
+            projectPage.style.display = "none"
+            detailsPage.style.display = "flex"
+            this.setDetailsPage(project, this.id)
 
                 
                 
@@ -86,11 +96,19 @@ export class ProjectManager {
         }
 
 
+//M2-Assignment Q#5
         getProject(id:string) {
-            const project= this.list.find((project) => {
-                return project.id === id      
+            console.log(`Searching for project with id: ${id}`);
+            const project = this.list.find((project) => {
+                console.log(`Checking project with id: ${project.id}`);
+                return project.id === id;
             })
-            return project
+            if (project) {
+                console.log(`Found project with id: ${project.id}`);
+            } else {
+                console.log(`No project found with id: ${id}`);
+            }
+            return project;
         }
 
         deleteProject(id: string) {

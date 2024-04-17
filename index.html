@@ -4,31 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="sytle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <aside id="sidebar">
-        <img id="Company-logo" src="./assets/Company-logo.svg" alt="">
+        <img id="company-logo" src="./assets/Company-logo.svg" alt="">
         <ul id="nav-buttons">
-            <button id="homebtn" class="material-symbols-outlined">HOME
-                <div>Home</div>
+            <button id="homebtn" class="material-symbols-outlined">home
+                <div>HOME</div>    
             </button>
-            <button id="sidebarbtn" class="material-symbols-outlined">check
+            <button id="nav-buttons" class="material-symbols-outlined">check
                 <div>IDS</div>
             </button>
-            <button id="sidebarbtn" class="material-symbols-outlined">dashboard
+            <button id="nav-buttons" class="material-symbols-outlined">dashboard
                 <div>Dashboard</div>
             </button>
-            <button id="sidebarbtn" class="material-symbols-outlined">Settings
+            <button id="nav-buttons" class="material-symbols-outlined">Settings
                 <div>Settings</div>
             </button>
         </ul>
     </aside>
     <main id="content">
-        <div class="page" id="project-page">
+        <div class="page" id="project-page" style="display: none;">
         <dialog id="new-project-modal">
             <form id="new-project-form" >
                 <h2>New Poject</h2>
@@ -79,7 +80,7 @@
             </dialog>
         </dialog>
         <header id="page-header">
-            <h1>Projects</h1>
+            <h1>Project Managment</h1>
             <div>
                 <button id="import-btn" class="fa-solid fa-upload"><span class="material-icon-round">Import</span></button>
                 <button id="export-btn" class="fa-solid fa-download"><span class="material-icon-round">Export</span></button>
@@ -116,11 +117,11 @@
              </div>
         </div>
         </div>
-        <div class="page" id="project-details" style="display: none;">
-            <header>
+        <div class="page" id="project-details" style="display: flex;">
+            <header>    
                 <div>
-                    <h2 data-project-info="name">Prject</h2>
-                    <p data-project-description="description">Mitt projektbeskrivnings</p>
+                    <h2 data-project-info="name">Prrrrrrrrrrrrrrroject</h2>
+                    <p data-project-description="description">Projektbeskrivning</p>
                 </div>
             </header>
             <dialog id="edit-project-modal">
@@ -164,7 +165,7 @@
                         <button id="close-btn"  type="button" style=" align-items:end; color: white; padding: 9px; border-radius: 6px;">Cancel</button>
                         <button id="updateBtn" type="submit" style="color: rgb(255, 255, 255); background-color: rgb(59, 84, 153); padding: 9px; border-radius: 6px;">Update</button>
                 </form>
-                <dialog id="pop-up-modal" style="display:none; ">
+                <dialog id="pop-up-modal" style="display:flex; ">
                     <div id="pop-up-container">
                         <h2 class="fa fa-warning">Warning!</h2>
                          <p id="Alert-message">Projektet har samma namn</p>
@@ -219,19 +220,19 @@
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: column; padding: 10px 30px; row-gap: 20px;">
-                            <div class="T-do">
+                            <div class="todo-item">
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
                                     <div style="display: flex; column-gap: 15px; align-items: center;">
-                                        <span class="material-icon-round" style="padding: 10px; background-color: #ffffff;">check_box</span>
-                                        <p>make anything here as you want, bla bla bla</p>
+                                        <span class="material-icon-round" style="padding: 10px; background-color: #ffffff;">check</span>
+                                        <p id="description">make anything here as you want, bla bla bla</p>
                                     </div>
-                                    <p style="text-wrap: nowrap; margin-left:10px">Friday</p>
+                                    <p id="date" style="text-wrap: nowrap; margin-left:10px">Friday</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                    <div id="Viewer-container" class="dashboard-card"></div>
+                    <div id="viewer-container" class="dashboard-card" style="min-width: 0; position: relative;"></div>
                 </div>
             </div>
         </div>
