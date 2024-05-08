@@ -20,6 +20,7 @@
     "openbim-components": "1.1.5",
     "picocolors": "^1.0.0",
     "postcss": "^8.4.35",
+    "react": "18.2.0",
     "rollup": "^4.10.0",
     "source-map-js": "^1.0.2",
     "three": "0.152.2",
