@@ -14,6 +14,7 @@ import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader"
 import { FragmentsGroup } from "bim-fragment"
 import { TodoCreator } from "./bim-components/ToDoCreator"
 import { TodoCard } from "./bim-components/src/TodoCard"
+import { SimpleQTO } from "./bim-components/SimpleQTO"
 
 
 const projectlistUI = document.getElementById("project-list") as HTMLDivElement
@@ -422,6 +423,18 @@ toDoCreator.onProjectCreated.add((todo) =>{
 console.log(todo)
 })
 
+const simpleQto = new SimpleQTO(viewer)
+await simpleQto.setup()
+
+
+const propertiesFinder = new OBC.IfcPropertiesFinder(viewer)
+await propertiesFinder.init()
+propertiesFinder.onFound.add((fragmentIDMap) => {
+    highlighter.highlightByID("select", fragmentIDMap)
+  })
+
+//TOOLBAR
+
 const toolbar = new OBC.Toolbar(viewer)
 toolbar.addChild(
   ifcLoader.uiElement.get("main"),
@@ -429,8 +442,9 @@ toolbar.addChild(
   propertiesProcessor.uiElement.get("main"),
   importFragmentBtn,
   fragmentManager.uiElement.get("main"),
-  toDoCreator.uiElement.get("activationButton")
-
+  toDoCreator.uiElement.get("activationButton"),
+  simpleQto.uiElement.get("activationBtn"),
+  propertiesFinder.uiElement.get("main"),
   
 )
 viewer.ui.addToolbar(toolbar)
